@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserComponent } from './user/user.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MaterialExampleModule} from '../material.module'
+import { MatPaginatorModule} from '@angular/material/paginator';
+import {  MatButtonModule } from '@angular/material/button'
+import { MaterialExampleModule} from '../material.module'
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
@@ -18,13 +19,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './login/login.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent,
+    PopUpComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatButtonModule,
     MatInputModule,
   ],
   providers: [],

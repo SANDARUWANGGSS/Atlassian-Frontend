@@ -1,24 +1,22 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatButton } from '@angular/material/button';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
 import { UserServicesService } from '../user-services.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 
 
 export interface UserData {
 
   id: string;
-
   email: string;
-
   username: string;
-
   firstName: string;
-
   city: string;
-
 }
 
 
@@ -35,7 +33,7 @@ export interface UserData {
 export class UserComponent implements  OnInit {
 
 
-  displayedColumns: string[] = ['id', 'email', 'username', 'firstName', 'city'];
+  displayedColumns: string[] = ['id', 'email', 'username', 'firstName', 'city', 'action'];
 
   dataSource!: MatTableDataSource<UserData>;
 
@@ -47,9 +45,7 @@ export class UserComponent implements  OnInit {
 
 
 
-  constructor(private usersService: UserServicesService) {
-
-
+  constructor(private usersService: UserServicesService, private matdialog: MatDialog) {
 
   }
 
@@ -58,25 +54,6 @@ export class UserComponent implements  OnInit {
 
   ngOnInit() {
 
-    // this.usersService.getUserDetails().subscribe((data: any) => {
-
-    //   console.log(data);
-
-    //   this.users = data;
-
-    //   this.dataSource = new MatTableDataSource(this.users);
-
-
-
-    //   this.dataSource.paginator = this.paginator;
-
-    // this.dataSource.sort = this.sort;
-
-    // }
-
-
-
-    // );
     this.usersService.getUserDetails().then((res) => {
       res.json().then((data) => {
       this.users = data;
@@ -84,10 +61,10 @@ export class UserComponent implements  OnInit {
       console.log("HII");
       console.log(data);
 
-       // return data;
       this.dataSource = new MatTableDataSource(this.users);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+
       });
 
     }).catch((err) => {
@@ -101,14 +78,10 @@ export class UserComponent implements  OnInit {
 
 
 
-
-
   applyFilter(event: Event) {
 
     const filterValue = (event.target as HTMLInputElement).value;
-
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
 
 
     if (this.dataSource.paginator) {
@@ -117,6 +90,12 @@ export class UserComponent implements  OnInit {
 
     }
 
+  }
+
+  OpenPopUp()
+  {
+    this.matdialog.open(PopUpComponent);
+    // console.log("Hello");
   }
 
 }
