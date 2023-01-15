@@ -11,9 +11,9 @@ export class UserServicesService {
   {
     return fetch('https://fakestoreapi.com/users');
   }
-  getSingleUser()
+  getSingleUser(individual_id:any)
   {
-    return fetch('https://fakestoreapi.com/users/1');
+    return fetch('https://fakestoreapi.com/users/'+individual_id);
   }
   
 }

@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserServicesService } from '../user-services.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
+import Swal from 'sweetalert2';
 
 
 
@@ -38,10 +39,17 @@ export class UserComponent implements  OnInit {
   dataSource!: MatTableDataSource<UserData>;
 
   users: any[] = [];
+  individual : any;
+  individual_id : any;
+
+
+
+
 
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
   @ViewChild(MatSort, { static: false }) sort!: MatSort;
+  singleUsers: any;
 
 
 
@@ -92,10 +100,52 @@ export class UserComponent implements  OnInit {
 
   }
 
-  OpenPopUp()
+  OpenPopUp(individual_id:any)
   {
-    this.matdialog.open(PopUpComponent);
-    // console.log("Hello");
+    this.usersService.getSingleUser(individual_id).then((res) => {
+      res.json().then((singledata) => {
+      this.singleUsers = singledata;
+
+      console.log("HII");
+      console.log(singledata);
+
+      Swal.fire(
+        {
+          // title: '<strong>Hello, I m </strong>'+singledata.username,
+          title:'<strong >Hello, I m </strong>'+'<b>'+singledata.name.firstname .charAt(0).toUpperCase() +singledata.name.firstname.slice(1)+ " "+ singledata.name.lastname.charAt(0).toUpperCase()+singledata.name.lastname.slice(1),
+              text: "",
+          icon: 'info',
+          html:
+          '<h4><b>Here are my details</b></h4>'+
+            '<p id="user">User ID : ' + singledata.id +
+            '</p><p id="user">User Name : ' + singledata.username +
+            '<p id="user">User Email : ' + singledata.email +
+            '</p><p>City : ' + singledata.address.city +
+            '</p><p>Phone Number : ' + singledata.phone +
+            '</p><p>Password : ' + singledata.password +
+            '</p><p>Address : ' + singledata.address.zipcode + ", " + singledata.address.street + ", " + singledata.address.city,
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        '<i class="fa fa-thumbs-up"></i> Ok!',
+      confirmButtonAriaLabel: 'Thumbs up, great!',
+      cancelButtonText:
+        '<i class="fa fa-thumbs-down"></i> Cancel',
+      cancelButtonAriaLabel: 'Thumbs down'
+      
+        }
+        
+        );
+
+      });
+
+    }).catch((err) => {
+
+      console.log(err)
+
+    });
+   
   }
 
 }

@@ -59,7 +59,7 @@
         
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let DataRow"> <input class="btn btn-primary" type="submit" value="View" (click)="OpenPopUp()" >
+        <td mat-cell *matCellDef="let DataRow"> <input class="btn btn-primary" type="submit" value="View" (click)=OpenPopUp(DataRow.id) >
         </td>
       </ng-container>
   
