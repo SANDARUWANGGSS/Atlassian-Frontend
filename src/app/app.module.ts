@@ -21,6 +21,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -29,7 +32,10 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     AppComponent,
     UserComponent,
     LoginComponent,
-    PopUpComponent
+    PopUpComponent,
+    PageNotFoundComponent,
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
