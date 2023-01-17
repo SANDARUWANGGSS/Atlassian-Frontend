@@ -1,58 +1,82 @@
-
-.signinpic {
-    margin: 5px;
-    width: 500px;
-}
-.signincontainer{
-text-align: left;
-}
-h1{
-    color:#1869f5;
-}
-.loginiconem{
-    position:absolute;
-    right:365px;
-    bottom:72px;
-    height:100%;
-    display:flex;
-    align-items:center;
-    color: black;
-    cursor:pointer;
-}
-.loginbtn{
-    
-    width:50%;
-    color:brown;
-}
-.loginiconpw{
-    position:absolute;
-    right:365px;
-    top:22px;
-    height:100%;
-    display:flex;
-    align-items:center;
-    color: black;
-    cursor:pointer;
-}
-.pbtn{
-    position:absolute;
-    right:40px;
-    top:60px;
-    bottom:0;
-    height:100%;
-    display:flex;
-    align-items:center;
-    color: black;
-    cursor:pointer;
-}
-.loginform-input input{
-    width:100%;
-    padding-left:30px;
-}
-
-@media only screen and (max-width:700px){
-    .signinpic{
-        max-width:100%;
-        width:500px;
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #60a3bc !important;
+        /* background: white; */
     }
-}
+    .user_card {
+        height: 400px;
+        width: 350px;
+        margin-top: auto;
+        margin-bottom: auto;
+        /* background: #f39c12; */
+        background: #172B4D;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+    }
+    .brand_logo_container {
+        position: absolute;
+        height: 170px;
+        width: 170px;
+        top: -75px;
+        border-radius: 50%;
+        background: #60a3bc;
+        padding: 10px;
+        text-align: center;
+    }
+    .brand_logo {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        border: 2px solid white;
+    }
+    .form_container {
+        margin-top: 100px;
+    }
+    .login_btn {
+        width: 100%;
+        background: #60a3bc !important;
+        color: white !important;
+    }
+    .login_btn:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+    .login_container {
+        padding: 0 2rem;
+    }
+    .input-group-text {
+        background: #60a3bc !important;
+        color: white !important;
+        border: 0 !important;
+        border-radius: 0.25rem 0 0 0.25rem !important;
+    }
+    .input_user,
+    .input_pass:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+    .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+        /* background-color: #c0392b !important; */
+        background-color: #60a3bc
+    }
+
+    #customControlInline
+    {
+        color: white;
+    }
+
+    .custom-control-label
+    {
+        color: wheat;
+    }
