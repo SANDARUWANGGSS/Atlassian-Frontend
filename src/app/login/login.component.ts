@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit
        sessionStorage.setItem('isLogin','true')
       // console.log(sessionStorage.getItem('Token'))
       // console.log(sessionStorage.getItem('isLogin'))
-       this.router.navigate(['users'])
+       this.router.navigate(['home'])
      },error=>{
        console.log(error)
      });      

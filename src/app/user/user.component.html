@@ -1,74 +1,82 @@
 <app-navbar></app-navbar>
-<mat-form-field>
 
-    <mat-label>Search</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. John" #input>
-  
-  </mat-form-field>
-  
-  <div class="mat-elevation-z8">
-  
-    <table mat-table [dataSource]="dataSource" matSort>
+  <div class="mt-5 p-5 text-left tableContainer">
+    <div class="row px-2">
+        <div class="col-lg-11 mx-auto shadow p-5 mb-2 bg-white rounded ">
+            
+          <div class="searchBar">
+            <mat-form-field>
 
-      <!-- User ID column started -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let DataRow"> {{DataRow.id}} </td>
-      </ng-container>
-      <!-- User ID column ended -->
-  
-      <!-- User name column started -->
-      <ng-container matColumnDef="username">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
-        <td mat-cell *matCellDef="let DataRow"> {{DataRow.username}} </td>
-      </ng-container>
-      <!-- User name column ended -->
-  
-      <!-- User email column started -->
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-        <td mat-cell *matCellDef="let DataRow"> {{DataRow.email}} </td>
-      </ng-container>
-      <!-- User email column ended -->
-  
-      <!-- First Name column started -->
-      <ng-container matColumnDef="firstName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
-        <td mat-cell *matCellDef="let DataRow"> {{DataRow.name.firstname}} </td>
-      </ng-container>
-      <!-- First Name column ended -->
-  
-      <!-- City column started -->
-      <ng-container matColumnDef="city">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
-        <td mat-cell *matCellDef="let DataRow"> {{DataRow.address.city}} </td>
-      </ng-container>
-      <!-- City column started -->
-  
-      <!-- Action Button Column started-->
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let DataRow"> <input class="btn btn-primary" type="submit" value="View" (click)=OpenPopUp(DataRow.id) >
-        </td>
-      </ng-container>
-      <!-- Action Button Column ended-->
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let DataRow; columns: displayedColumns;"></tr>
-  
-  
-      <!-- This row should be shown when there is no matching data started -->
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-      </tr>
-      <!-- This row should be shown when there is no matching data ended -->
-
-    </table>
-  
-    <!-- Pagination started -->
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
-    <!-- Pagination ended -->
-
-  </div>
-  
-  
+              <mat-label>Search</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Ex. John" #input>
+            
+            </mat-form-field>
+          </div>
+          
+          <div class="mat-elevation-z8">
+          
+            <table mat-table [dataSource]="dataSource" matSort>
+        
+              <!-- User ID column started -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let DataRow"> {{DataRow.id}} </td>
+              </ng-container>
+              <!-- User ID column ended -->
+          
+              <!-- User name column started -->
+              <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
+                <td mat-cell *matCellDef="let DataRow"> {{DataRow.username}} </td>
+              </ng-container>
+              <!-- User name column ended -->
+          
+              <!-- User email column started -->
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                <td mat-cell *matCellDef="let DataRow"> {{DataRow.email}} </td>
+              </ng-container>
+              <!-- User email column ended -->
+          
+              <!-- First Name column started -->
+              <ng-container matColumnDef="firstName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+                <td mat-cell *matCellDef="let DataRow"> {{DataRow.name.firstname}} </td>
+              </ng-container>
+              <!-- First Name column ended -->
+          
+              <!-- City column started -->
+              <ng-container matColumnDef="city">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+                <td mat-cell *matCellDef="let DataRow"> {{DataRow.address.city}} </td>
+              </ng-container>
+              <!-- City column started -->
+          
+              <!-- Action Button Column started-->
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let DataRow"> <input class="btn btn-primary" type="submit" value="View" (click)=OpenPopUp(DataRow.id) >
+                </td>
+              </ng-container>
+              <!-- Action Button Column ended-->
+        
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let DataRow; columns: displayedColumns;"></tr>
+          
+          
+              <!-- This row should be shown when there is no matching data started -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr>
+              <!-- This row should be shown when there is no matching data ended -->
+        
+            </table>
+          
+            <!-- Pagination started -->
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+            <!-- Pagination ended -->
+        
+          </div>
+        </div>
+    </div>
+</div>
