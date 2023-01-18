@@ -8,7 +8,7 @@ import { UserServicesService } from '../user-services.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import Swal from 'sweetalert2';
-
+import { Router } from '@angular/router';
 
 
 export interface UserData {
@@ -53,14 +53,26 @@ export class UserComponent implements  OnInit {
 
 
 
-  constructor(private usersService: UserServicesService, private matdialog: MatDialog) {
+  constructor(private usersService: UserServicesService, private matdialog: MatDialog, private Router: Router) {
 
   }
 
 
 
 
-  ngOnInit() {
+  ngOnInit() :void{
+
+     // Check login started
+     if(sessionStorage.getItem("isLogin") != "true")
+     {
+       this.Router.navigate(['']);
+     }
+     else
+     {
+       this.Router.navigate(['users']);
+     }
+     // Check login ended
+
 
     this.usersService.getUserDetails().then((res) => {
       res.json().then((data) => {

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit
 
   Login(username:any,password:any) {
     return this.service.userLogin(username,password).subscribe((response: any) => {
-      // console.log(response);
+      console.log(response);
        this.isLogin=true;
        sessionStorage.setItem('Token',response.token)
        sessionStorage.setItem('isLogin','true')

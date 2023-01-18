@@ -4,13 +4,15 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserComponent } from './user/user.component';
-
+import { Router} from '@angular/router';
 
 const routes: Routes = [
+
   {path : 'home', component : HomeComponent},
   {path : 'users', component : UserComponent},
   {path : '', component : LoginComponent},
   {path : '**', component: PageNotFoundComponent}
+  
 ];
 
 @NgModule({
