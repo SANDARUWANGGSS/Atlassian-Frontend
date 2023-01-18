@@ -24,7 +24,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { LoginNeedComponent } from './login-need/login-need.component';
+
 
 
 
@@ -37,7 +37,6 @@ import { LoginNeedComponent } from './login-need/login-need.component';
     PageNotFoundComponent,
     HomeComponent,
     NavbarComponent,
-    LoginNeedComponent
   ],
   imports: [
     BrowserModule,
